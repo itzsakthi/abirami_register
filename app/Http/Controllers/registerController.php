@@ -261,12 +261,9 @@ class registerController extends Controller
       curl_close($curl);
     }
     return response()->json(['status' => true, 'message' => 'Yelam Register Successfully']);
-    
-    
   
-    // } else if ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in") {
-    } else if ($_SERVER['HTTP_HOST'] == "127.0.0.1:8000") {
-// dd("Sd");
+    } else if ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in") {
+
       $project_name = 'Nagammai Temple';
       $month_year = now()->format('F Y');
       $yelam_thing = $products->things;
@@ -320,7 +317,7 @@ class registerController extends Controller
                 'error' => curl_error($curl)
             ]);
         } else {
-            \Log::info('BhashSMS response', [
+            \Log::info('BhashSMS response no 1', [
                 'response' => $response
             ]);
         }
@@ -369,7 +366,7 @@ class registerController extends Controller
                 'error' => curl_error($curl)
             ]);
         } else {
-            \Log::info('BhashSMS response', [
+            \Log::info('BhashSMS response no 2', [
                 'response' => $response
             ]);
         }
@@ -419,7 +416,7 @@ class registerController extends Controller
                 'error' => curl_error($curl)
             ]);
         } else {
-            \Log::info('BhashSMS response', [
+            \Log::info('BhashSMS response internal ', [
                 'response' => $response
             ]);
         }

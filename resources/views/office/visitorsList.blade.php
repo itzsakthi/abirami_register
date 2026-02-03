@@ -172,7 +172,7 @@
                             <td> <a href="editmemeber/{{ $room->id }}" > <i class="material-icons opacity-10">edit</i></a></td>
                             <td id="whatsapp"> <a href="sendwhatsappmsg/{{ $room->id }}" > <i class="fa fa-whatsapp"></i></a>
     </td>
-                            @if($_SERVER['HTTP_HOST']=="singaravelar.templesmart.in" ||  $_SERVER['HTTP_HOST'] == '127.0.0.1:8000') 
+                            @if($_SERVER['HTTP_HOST']=="singaravelar.templesmart.in" ||  $_SERVER['HTTP_HOST'] == 'napvm.templesmart.in') 
                             <td> <a href="userprofile/{{ $room->pulliid }}"><p class="text-xs  font-weight-bold mb-0"> {{ $room->pulliid }}</p></a>
                             </td>
                             @else

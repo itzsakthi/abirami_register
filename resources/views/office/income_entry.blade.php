@@ -1217,7 +1217,7 @@ function handlePulliidSearchForDonation(value) {
                                         <h2>சிங்காரவேலர் படைப்பு வீடு டிரஸ்ட்</h2>
                                         <h3>SINGARAVELAR PADAIPPU VEDU TRUST</h3>
                                         <p>மேலைச்சிவிரி - 123456. புதுக்கோட்டை மாவட்டம்.</p>
-                                    @elseif ($_SERVER['HTTP_HOST'] == "127.0.0.1:8000")
+                                    @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
                                         <h2>நாகம்மை ஆயா படைப்புக் குழு</h2>
                                         <h3>NAGAMMAI AAYA PADAIPPU KUZHU</h3>
                                         <p>மேலைச்சிவபுரி - 622 403. புதுகை மாவட்டம்.</p>
@@ -1247,11 +1247,13 @@ function handlePulliidSearchForDonation(value) {
                                 <div class="footer">
                                     <div class="amount-box">₹ ${array.amount}
                                         <span style="font-size: 10px;color:rgba(117, 117, 117, 0.808);">/-</span></div>
-                                    @if ($_SERVER['HTTP_HOST'] == "singaravelar.templesmart.in")
-                                         <div class="signature">செயலர் கையொப்பம்</div>
-                                    @elseif ($_SERVER['HTTP_HOST'] == "127.0.0.1:8000")
-                                        <div class="signature_nagammai">நாகம்மை ஆயா படைப்புக் குழுவிற்காக</div>
-                                    @endif    
+                                        <div class="signature">
+                                            @if ($_SERVER['HTTP_HOST'] == "singaravelar.templesmart.in")
+                                                செயலர் கையொப்பம்
+                                            @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
+                                                நாகம்மை ஆயா படைப்புக் குழுவிற்காக
+                                            @endif
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -1319,9 +1321,15 @@ function handlePulliidSearchForDonation(value) {
                         <div class="overlay-content">
                             <div class="header">
                                 <div class="title_receipt_id">
-                                    <h2>சிங்காரவேலர் படைப்பு வீடு டிரஸ்ட்</h2>
-                                    <h3>singaravelar PADAIPPU VEDU TRUST</h3>
-                                    <p>மேலைச்சிவிரி - 123456. புதுக்கோட்டை மாவட்டம்.</p>
+                                    @if ($_SERVER['HTTP_HOST'] == "singaravelar.templesmart.in")
+                                        <h2>சிங்காரவேலர் படைப்பு வீடு டிரஸ்ட்</h2>
+                                        <h3>SINGARAVELAR PADAIPPU VEDU TRUST</h3>
+                                        <p>மேலைச்சிவிரி - 123456. புதுக்கோட்டை மாவட்டம்.</p>
+                                    @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
+                                        <h2>நாகம்மை ஆயா படைப்புக் குழு</h2>
+                                        <h3>NAGAMMAI AAYA PADAIPPU KUZHU</h3>
+                                        <p>மேலைச்சிவபுரி - 622 403. புதுகை மாவட்டம்.</p>
+                                    @endif
                                 </div>
                                 <div class="dateid">
                                     <div class="date_receipt_id">தேதி: ${now[0]}</div>
@@ -1348,7 +1356,13 @@ function handlePulliidSearchForDonation(value) {
                                 <div class="footer">
                                     <div class="amount-box">₹ ${array.amount} 
                                         <span style="font-size: 10px;color:rgba(117, 117, 117, 0.808);">/-</span></div>
-                                    <div class="signature">செயலர் கையொப்பம்</div>
+                                        <div class="signature">
+                                            @if ($_SERVER['HTTP_HOST'] == "singaravelar.templesmart.in")
+                                                செயலர் கையொப்பம்
+                                            @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
+                                                நாகம்மை ஆயா படைப்புக் குழுவிற்காக
+                                            @endif    
+                                        </div>                                    
                                 </div>
                             </div>
                         </div>
@@ -1444,9 +1458,15 @@ function handlePulliidSearchForDonation(value) {
                                         <div class="overlay-content">
                                             <div class="header">
                                                 <div class="title_receipt_id">
-                                                    <h2>சிங்காரவேலர் படைப்பு வீடு டிரஸ்ட்</h2>
-                                                    <h3>singaravelar PADAIPPU VEDU TRUST</h3>
-                                                    <p>மேலைச்சிவிரி - 123456. புதுக்கோட்டை மாவட்டம்.</p>
+                                                    @if ($_SERVER['HTTP_HOST'] == "singaravelar.templesmart.in")
+                                                        <h2>சிங்காரவேலர் படைப்பு வீடு டிரஸ்ட்</h2>
+                                                        <h3>SINGARAVELAR PADAIPPU VEDU TRUST</h3>
+                                                        <p>மேலைச்சிவிரி - 123456. புதுக்கோட்டை மாவட்டம்.</p>
+                                                    @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
+                                                        <h2>நாகம்மை ஆயா படைப்புக் குழு</h2>
+                                                        <h3>NAGAMMAI AAYA PADAIPPU KUZHU</h3>
+                                                        <p>மேலைச்சிவபுரி - 622 403. புதுகை மாவட்டம்.</p>
+                                                    @endif
                                                 </div>
                                                 <div class="dateid">
                                                     <div class="date_receipt_id">தேதி: ${now[0]}</div>
@@ -1472,7 +1492,13 @@ function handlePulliidSearchForDonation(value) {
                                                 <div class="footer">
                                                     <div class="amount-box">₹ ${array.amount} 
                                                         <span style="font-size: 10px;color:rgba(117, 117, 117, 0.808);">/-${array.amount} </span></div>
-                                                    <div class="signature">செயலர் கையொப்பம்</div>
+                                                    <div class="signature">
+                                                        @if ($_SERVER['HTTP_HOST'] == "singaravelar.templesmart.in")
+                                                            செயலர் கையொப்பம்
+                                                        @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
+                                                            நாகம்மை ஆயா படைப்புக் குழுவிற்காக
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

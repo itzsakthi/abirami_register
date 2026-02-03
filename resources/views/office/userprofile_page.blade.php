@@ -49,7 +49,7 @@
                                         <input type="text"
                                                id="pulliSearch"
                                                class="form-control"
-                                               placeholder="Enter Pulli ID"
+                                               placeholder="Enter Pulli ID/ Whatsapp No"
                                                style="
                                                    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
                                                    border-radius: 6px;
@@ -195,7 +195,7 @@ function yellamSeacrhFn(radio) {
 $(document).ready(function () {
 
     const $input = $('#pulliSearch');
-    const $btn   = $('#searchBtn'); // 👈 your search button id
+    const $btn   = $('#searchBtn'); 
 
     function doPulliSearch() {
         const value = $input.val().trim();
@@ -249,7 +249,7 @@ $(document).ready(function () {
         });
     }
 
-    /* 🔑 ENTER KEY */
+    /*  ENTER KEY */
     $input.on('keydown', function (e) {
         if (e.key === 'Enter') {
             e.preventDefault();
@@ -257,7 +257,7 @@ $(document).ready(function () {
         }
     });
 
-    /* 🔑 SEARCH BUTTON CLICK */
+    /* SEARCH BUTTON CLICK */
     $btn.on('click', function (e) {
         console.log("btnnnn");
         

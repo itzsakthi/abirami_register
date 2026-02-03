@@ -320,7 +320,6 @@ return redirect()->back()->withErrors($validator)->withInput();
             $karai = $request->input('karai');
             $reference = $request->input('reference');
             $native = $request->input('native');
-           
 
 
             $memember = Register::create([
@@ -339,6 +338,7 @@ return redirect()->back()->withErrors($validator)->withInput();
                 'native' => $native,
             ]);
             
+        if ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in") {
              
             $params = implode(',', [
                 'Nagammai KOVIL',
@@ -350,12 +350,12 @@ return redirect()->back()->withErrors($validator)->withInput();
                 $fathername,
                 $spousename,
                 $whatsappnumber,
-                // $spousenumber,
-                // $email,
-                // $address,
-                // $native
+                $spousenumber,
+                $email,
+                $address,
+                $native
             ]);
-            $whatsapp_template = 'sonaiya_elam_info';
+            $whatsapp_template = 'soniya_0710';
 
 
             $url = "http://bhashsms.com/api/sendmsg.php?" . http_build_query([
@@ -381,12 +381,13 @@ return redirect()->back()->withErrors($validator)->withInput();
                     'error' => curl_error($ch)
                 ]);
             } else {
-                \Log::info('BhashSMS WhatsApp response (cURL)', [
+                \Log::info('BhashSMS WhatsApp response (cURL) new : ', [
                     'response' => $response
                 ]);
             }
 
             curl_close($ch);
+        }
 
 
 // $curl = curl_init();

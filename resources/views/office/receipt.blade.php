@@ -167,7 +167,7 @@
                             <h2>சிங்காரவேலர் படைப்பு வீடு டிரஸ்ட்</h2>
                             <h3>SINGARAVELAR PADAIPPU VEDU TRUST</h3>
                             <p>மேலைச்சிவிரி - 123456. புதுக்கோட்டை மாவட்டம்.</p>
-                        @elseif ($_SERVER['HTTP_HOST'] == "127.0.0.1:8000")
+                        @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
                             <h2>நாகம்மை ஆயா படைப்புக் குழு</h2>
                             <h3>NAGAMMAI AAYA PADAIPPU KUZHU</h3>
                             <p>மேலைச்சிவபுரி - 622 403. புதுகை மாவட்டம்.</p>
@@ -203,7 +203,7 @@
                         <div class="signature">
                             @if ($_SERVER['HTTP_HOST'] == "singaravelar.templesmart.in")
                                 செயலர் கையொப்பம்
-                            @elseif ($_SERVER['HTTP_HOST'] == "127.0.0.1:8000")
+                            @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
                                 நாகம்மை ஆயா படைப்புக் குழுவிற்காக
                             @endif    
                         </div>
@@ -231,7 +231,7 @@
                             <h2>சிங்காரவேலர் படைப்பு வீடு டிரஸ்ட்</h2>
                             <h3>SINGARAVELAR PADAIPPU VEDU TRUST</h3>
                             <p>மேலைச்சிவிரி - 123456. புதுக்கோட்டை மாவட்டம்.</p>
-                        @elseif ($_SERVER['HTTP_HOST'] == "127.0.0.1:8000")
+                        @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
                             <h2>நாகம்மை ஆயா படைப்புக் குழு</h2>
                             <h3>NAGAMMAI AAYA PADAIPPU KUZHU</h3>
                             <p>மேலைச்சிவபுரி - 622 403. புதுகை மாவட்டம்.</p>
@@ -267,7 +267,7 @@
                         <div class="signature">
                             @if ($_SERVER['HTTP_HOST'] == "singaravelar.templesmart.in")
                                 செயலர் கையொப்பம்
-                            @elseif ($_SERVER['HTTP_HOST'] == "127.0.0.1:8000")
+                            @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
                                 நாகம்மை ஆயா படைப்புக் குழுவிற்காக
                             @endif    
                         </div>
@@ -294,7 +294,7 @@
                             <h2>சிங்காரவேலர் படைப்பு வீடு டிரஸ்ட்</h2>
                             <h3>SINGARAVELAR PADAIPPU VEDU TRUST</h3>
                             <p>மேலைச்சிவிரி - 123456. புதுக்கோட்டை மாவட்டம்.</p>
-                        @elseif ($_SERVER['HTTP_HOST'] == "127.0.0.1:8000")
+                        @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
                             <h2>நாகம்மை ஆயா படைப்புக் குழு</h2>
                             <h3>NAGAMMAI AAYA PADAIPPU KUZHU</h3>
                             <p>மேலைச்சிவபுரி - 622 403. புதுகை மாவட்டம்.</p>
@@ -329,7 +329,7 @@
                         <div class="signature">
                             @if ($_SERVER['HTTP_HOST'] == "singaravelar.templesmart.in")
                                 செயலர் கையொப்பம்
-                            @elseif ($_SERVER['HTTP_HOST'] == "127.0.0.1:8000")
+                            @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
                                 நாகம்மை ஆயா படைப்புக் குழுவிற்காக
                             @endif    
                         </div>
@@ -356,7 +356,7 @@
                             <h2>சிங்காரவேலர் படைப்பு வீடு டிரஸ்ட்</h2>
                             <h3>SINGARAVELAR PADAIPPU VEDU TRUST</h3>
                             <p>மேலைச்சிவிரி - 123456. புதுக்கோட்டை மாவட்டம்.</p>
-                        @elseif ($_SERVER['HTTP_HOST'] == "127.0.0.1:8000")
+                        @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
                             <h2>நாகம்மை ஆயா படைப்புக் குழு</h2>
                             <h3>NAGAMMAI AAYA PADAIPPU KUZHU</h3>
                             <p>மேலைச்சிவபுரி - 622 403. புதுகை மாவட்டம்.</p>
@@ -392,7 +392,7 @@
                         <div class="signature">
                             @if ($_SERVER['HTTP_HOST'] == "singaravelar.templesmart.in")
                                 செயலர் கையொப்பம்
-                            @elseif ($_SERVER['HTTP_HOST'] == "127.0.0.1:8000")
+                            @elseif ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in")
                                 நாகம்மை ஆயா படைப்புக் குழுவிற்காக
                             @endif    
                         </div>
