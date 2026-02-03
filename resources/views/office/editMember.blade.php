@@ -28,54 +28,73 @@
                       
     <div class="">
 
+        @if ($errors->any())
+            <div id="errorBox" style="
+                background:#fdecea;
+                border:1px solid #f5c2c7;
+                color:#842029;
+                padding:12px 16px;
+                border-radius:6px;
+                margin-bottom:20px;
+            ">
+                <strong>Please fix the following errors:</strong>
+                <ul style="margin:8px 0 0 18px;">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
   
 
     <form action="{{url ('updatemember/'.$data->id)}}" method="POST" id="registerform" enctype="multipart/form-data">
 
     @csrf
     <div class="input-group input-group-static mb-4">
-        <label for="pulliid"> Pulli Id</label>
-        <input type="text" class="form-control" id="pulliid" name="pulliid"  value="  {{$data->pulliid }}" readonly>
+        <label for="pulliid"> Pulli Id <span style="color: red">*</span> </label>
+        <input type="text" class="form-control" id="pulliid" name="pulliid"  value="  {{$data->pulliid }}" readonly required>
       
     </div>
     <div class="input-group input-group-static mb-4">
-        <label for="name"> Name</label>
+        <label for="name"> Name <span style="color: red">*</span> </label>
         <input type="text" class="form-control" id="name" name="name"  value="{{$data ->name }}" required>
       
     </div>
     <!-- <span id="productNameError" class="error" style="display:none; color: #ff0000; font-size: 13px;"></span> -->
-    <div class="amman"
+    <div class="amman">
  <div class="input-group input-group-static mb-4" >
         <label for="fathername">Father Name</label><br>
-        <input type="text" class="form-control" id="fathername" name="fathername" value="0" required>
+        <input type="text" class="form-control" id="fathername" name="fathername" value="0" >
     </div></div>
 
     <div class="input-group input-group-static mb-4">
         <label for="spousename">Spouse Name</label>
         <br>
-        <input type="text" class="form-control" id="" name="spousename" value="{{$data->spousename }}" required>
+        <input type="text" class="form-control" id="" name="spousename" value="{{$data->spousename }}" >
     </div>
     <div class="amman">
     <div class="input-group input-group-static mb-4">
         <label for="phonenumber">Phone Number</label>
         <br>
-        <input type="number" class="form-control" id="" name="phonenumber" value="{{$data->phonenumber }}" required>
+        <input type="number" class="form-control" id="" name="phonenumber" value="{{$data->phonenumber }}" >
     </div>
 </div>
 
     <div class="input-group input-group-static mb-4">
-        <label for="whatsappnumber">Whatsapp Number</label>
+        <label for="whatsappnumber">Whatsapp Number <span style="color: red">*</span> </label>
         <br>
         <input type="number" class="form-control" id="" name="whatsappnumber" value="{{$data->whatsappnumber}}" required>
     </div>
     <div class="input-group input-group-static mb-4">
         <label for="spousenumber">Spouse Number</label>
         <br>
-        <input type="number" class="form-control" id="" name="spousenumber" value="{{$data-> spousenumber }}" required>
+        <input type="number" class="form-control" id="" name="spousenumber" value="{{$data-> spousenumber }}" >
     </div>
     <div class="input-group input-group-static mb-4">
         <label for="familynickname">Family Name</label>
-        <input type="text" class="form-control" id="" name="familynickname" value="{{$data-> familynickname }}"  required>
+        <input type="text" class="form-control" id="" name="familynickname" value="{{$data-> familynickname }}"  >
     </div>
 
 
@@ -83,32 +102,32 @@
     <div class="input-group input-group-static mb-4">
         <label for="email">email</label>
         <br>
-        <input type="text" class="form-control" id="" name="email" value="0" required>
+        <input type="text" class="form-control" id="" name="email" value="0" >
     </div>
 </div>
 
     <div class="input-group input-group-static mb-4">
-        <label for="address">Address</label>
+        <label for="address">Address <span style="color: red">*</span> </label>
         <input type="text" class="form-control" id="" name="address" value="{{$data->address }} "  required>
     </div>
     <div class="input-group input-group-static mb-4">
         <label for="address">karai</label>
-        <input type="text" class="form-control" id="" name="karai" value="{{$data->karai }} "  required>
+        <input type="text" class="form-control" id="" name="karai" value="{{$data->karai }} "  >
     </div>
     <div class="input-group input-group-static mb-4">
         <label for="address">Reference</label>
-        <input type="text" class="form-control" id="" name="reference" value="{{$data->reference }} "  required>
+        <input type="text" class="form-control" id="" name="reference" value="{{$data->reference }} "  >
     </div>
 
     <div class="input-group input-group-static mb-4">
-        <label for="native">Native</label>
+        <label for="native">Native <span style="color: red">*</span> </label>
         <br>
         <input type="text" class="form-control" id="" name="native" value="{{$data-> native}}" required>
     </div>
 <div class="but" style="display:flex; flex-direction:row; gap:30%">
-    <button type="submit" id="submitbtn" class="btn bg-gradient-success">Send Whatsapp</button>
+    <button type="button" id="whatsappbtn" class="btn bg-gradient-success">Send Whatsapp</button>
     <button type="submit" id="submitbtn" class="btn bg-gradient-success">Submit</button>
-    <button type="button" onclick="history.back()" id="submitbtn" class="btn bg-gradient-primary">Cancel X </button></div>
+    <button type="button" onclick="history.back()" id="cancelbtn" class="btn bg-gradient-primary">Cancel X </button></div>
 </div>
 </form>
 
@@ -137,6 +156,16 @@
   </div>
   
  
+<script>
+    setTimeout(function () {
+        const box = document.getElementById('errorBox');
+        if (box) {
+            box.style.transition = 'opacity 0.5s ease';
+            box.style.opacity = '0';
+            setTimeout(() => box.remove(), 500);
+        }
+    }, 5000); // 5 seconds
+</script>
 
 
 

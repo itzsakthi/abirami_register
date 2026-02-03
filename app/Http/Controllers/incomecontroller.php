@@ -32,7 +32,9 @@ class incomecontroller extends Controller
     ->select('pulliid', 'name', 'whatsappnumber', 'address', 'native', 'reference')
     ->where(function ($q) use ($input_value) {
         $q->where('registers.pulliid', 'LIKE', '%' . $input_value . '%')
-          ->orWhere('registers.whatsappnumber', 'LIKE', '%' . $input_value . '%');
+          ->orWhere('registers.whatsappnumber', 'LIKE', '%' . $input_value . '%')
+          ->orWhere('registers.name', 'LIKE', '%' . $input_value . '%')
+          ->orWhere('registers.familynickname', 'LIKE', '%' . $input_value . '%');
     })
     ->orderBy('pulliid', 'asc')
     ->get();

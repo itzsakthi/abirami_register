@@ -454,20 +454,20 @@ return redirect()->back()->withErrors($validator)->withInput();
 
     
     $rules=[
-           
-        'pulliid' => 'required',
+        
+        'pulliid' => 'required|unique:registers,pulliid,' . $id,
         'name' => 'required',
-        'fathername' => 'required',
-        'spousename' => 'required',
-        'phonenumber' => 'required',
         'whatsappnumber' => 'required',
-        'spousenumber' => 'required|digits:10',
-        'familynickname' => 'required',
-        'email' => 'required',
         'address'=> 'required', 
-        'karai'=> 'required',
-        'reference'=> 'required', 
         'native' => 'required',
+        // 'fathername' => 'required',
+        // 'spousename' => 'required',
+        // 'phonenumber' => 'required',
+        // 'spousenumber' => 'required|digits:10',
+        // 'familynickname' => 'required',
+        // 'email' => 'required',
+        // 'karai'=> 'required',
+        // 'reference'=> 'required', 
         
 
 
@@ -477,19 +477,18 @@ return redirect()->back()->withErrors($validator)->withInput();
 
         $message=[
             'pulliid.required' => 'Kindly Enter pulliid',
-
             'name.required' => 'Kindly Enter Name',
-            'fathername.required' => 'Kindly Enter FatherName',
-            'spousename.required' => 'Kindly Enter SpouseName',
-            'phonenumber.required' => 'Kindly Enter Phone Number',
             'whatsappnumber.required' => 'Kindly Enter Whatsapp Number',
-            'spousenumber.required' => 'Kindly Enter spousenumber',
-            'familynickname. required' => 'kindly Enter familynickname',
-            'email.required' => 'Kindly Enter email',
             'address.required' => 'Kindly Enter address',
-            'karai.required' => 'Kindly Enter karai',
-            'reference.required' => 'Kindly Enter Reference',
             'native.required' => 'Kindly Enter native',
+            // 'fathername.required' => 'Kindly Enter FatherName',
+            // 'spousename.required' => 'Kindly Enter SpouseName',
+            // 'phonenumber.required' => 'Kindly Enter Phone Number',
+            // 'spousenumber.required' => 'Kindly Enter spousenumber',
+            // 'familynickname. required' => 'kindly Enter familynickname',
+            // 'email.required' => 'Kindly Enter email',
+            // 'karai.required' => 'Kindly Enter karai',
+            // 'reference.required' => 'Kindly Enter Reference',
 
     ];
 

@@ -49,7 +49,7 @@
                                         <input type="text"
                                                id="pulliSearch"
                                                class="form-control"
-                                               placeholder="Enter Pulli ID/ Whatsapp No"
+                                               placeholder="Enter Pulli ID/ Whatsapp No/ Name/ Family name"
                                                style="
                                                    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
                                                    border-radius: 6px;
