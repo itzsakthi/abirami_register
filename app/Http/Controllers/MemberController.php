@@ -317,7 +317,12 @@ return redirect()->back()->withErrors($validator)->withInput();
             $familynickname = $request->input('familynickname');
             $email = $request->input('email');
             $address = $request->input('address');
-            $karai = $request->input('karai');
+            if ($_SERVER['HTTP_HOST'] == "durgaiamman.templesmart.in") { 
+                $karai = $request->input('karai');
+            } else {
+                $karai = '-';
+            }
+
             $reference = $request->input('reference');
             $native = $request->input('native');
 
@@ -541,7 +546,11 @@ $spousenumber = $request->input('spousenumber');
 $familynickname = $request->input('familynickname');
 $email = $request->input('email');
 $address = $request->input('address');
-$karai = $request->input('karai');
+if ($_SERVER['HTTP_HOST'] == "durgaiamman.templesmart.in") { 
+    $karai = $request->input('karai');
+} else {
+    $karai = '-';
+}
 $reference = $request->input('reference');
 $native = $request->input('native');
         // $image = $imageName;
@@ -778,7 +787,7 @@ public function afterPayment($id,$amount,$reference){
             'amount' => $amount,
             'tot' => 'YELAM',
             'type' => 'INCOME',
-            'pay_mode' => $reference,
+            'pay_mode' => $reference ?? '',
             'remarks' => '--',
             'receipt_id'=>$receiptid,
             'created_at' => now(),

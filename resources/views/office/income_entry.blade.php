@@ -330,7 +330,7 @@
                             <div class="form-group">
                                 <label for="reference">Receipt No:</label>
                                 
-                                <input type="text" class="form-control" id="reference" name="reference" required>
+                                <input type="text" class="form-control" id="reference" name="reference" >
                             </div>
                             <div class="form-group">
                                 <label for="yelamporul">Amount:</label>
@@ -370,8 +370,8 @@
 
 
                 $('#pullvari_search_table').css('display', 'none');
-                $("#variId_mobile_search, #vari_id, #vari_name, #vari_no, #vari_value, #vari_address, #vari_DESCRIPTION").removeAttr("required").val('');
-                $("#pulliId_mobile_search, #pulli_id, #name, #no, #address, #dtype, #value, #DESCRIPTION").attr("required", true);
+                $("#variId_mobile_search, #vari_id, #vari_name, #vari_no, #vari_value, #vari_address").removeAttr("required").val('');
+                $("#pulliId_mobile_search, #pulli_id, #name, #no, #address, #dtype, #value").attr("required", true);
           
             } 
             else if (value ==="PULLIVARI") {
@@ -380,8 +380,8 @@
                 $("#yellam").hide();
 
                 $('#donation_search_table').css('display', 'none');
-                $("#variId_mobile_search, #vari_id, #vari_name, #vari_no, #vari_value, #vari_address, #vari_DESCRIPTION").attr("required", true);
-                $("#pulliId_mobile_search, #pulli_id, #name, #no, #address, #dtype, #value, #DESCRIPTION").removeAttr("required").val('');
+                $("#variId_mobile_search, #vari_id, #vari_name, #vari_no, #vari_value, #vari_address").attr("required", true);
+                $("#pulliId_mobile_search, #pulli_id, #name, #no, #address, #dtype, #value").removeAttr("required").val('');
             }
             else if (value ==="YELLAM") {
                 $(".donate").hide();
@@ -391,8 +391,8 @@
                 $('#donation_search_table').css('display', 'none');
                 $('#pullvari_search_table').css('display', 'none');
 
-                $("#variId_mobile_search, #vari_id, #vari_name, #vari_no, #vari_value, #vari_address, #vari_DESCRIPTION").removeAttr("required").val('');
-                $("#pulliId_mobile_search, #pulli_id, #name, #no, #address, #dtype, #value, #DESCRIPTION").removeAttr("required").val('');
+                $("#variId_mobile_search, #vari_id, #vari_name, #vari_no, #vari_value, #vari_address").removeAttr("required").val('');
+                $("#pulliId_mobile_search, #pulli_id, #name, #no, #address, #dtype, #value").removeAttr("required").val('');
 
             }
             else{
@@ -1382,9 +1382,13 @@ function handlePulliidSearchForDonation(value) {
             if (close_button) {
                 close_button.addEventListener('click', function() {
                     popup_container.style.display = 'none';
-                    window.location.href = `/userprofile/${array.ref_id}`;
+                    
+                    if(id.ref_id === 'Others') {
+                        window.location.reload();
+                    } else {
+                        window.location.href = `/userprofile/${array.ref_id}`;
+                    }
 
-                    // window.location.reload();
                 });
             }
             Swal.hideLoading();
@@ -1425,8 +1429,8 @@ function handlePulliidSearchForDonation(value) {
             
                 if (response.data) {
                     if (response.status === true) {
-                        var host = "{{ $_SERVER['HTTP_HOST'] }}";
-                        if (host == "singaravelar.templesmart.in") {
+                        var host = "{{ $_SERVER['HTTP_HOST'] }}";                        
+                        if (host == "singaravelar.templesmart.in" || host == "napvm.templesmart.in" ) {
                             console.log("Welcome! to "+host);
                             const popup_container = document.querySelector('.popupreceipt');
                             const pop_shadow = popup_container.attachShadow({mode: 'open'});

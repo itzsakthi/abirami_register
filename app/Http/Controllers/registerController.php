@@ -96,7 +96,6 @@ class registerController extends Controller
       'whatsappno' => 'required|digits:10',
       'native' => 'required|string',
       'bookid' => 'required|string',
-      'remark' => 'required|string',
 
       'nameguest' => 'required_if:yelamtype,external|nullable|string',
       'whatsappnoguest' => 'required_if:yelamtype,external|nullable|digits:10',

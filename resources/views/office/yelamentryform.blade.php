@@ -179,7 +179,7 @@
                 </div>
                 <div class="input-group input-group-static mb-4">
                   <label for="remark">Remark</label>
-                  <input type="text" class="form-control"id="remark" name="remark" required><br>
+                  <input type="text" class="form-control"id="remark" name="remark"><br>
                 </div>
                 
                 <div class="external" style="display:none" >

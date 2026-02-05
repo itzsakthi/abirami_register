@@ -615,14 +615,14 @@
 
 
 {{-- showing reportpage based on temple --}}
-@if (request()->getHost() !== 'singaravelar.templesmart.in')
+@if (request()->getHost() !== 'singaravelar.templesmart.in' && request()->getHost() !== 'napvm.templesmart.in')
     <script>
         $('#previous_yellam_search').show();
         $('#previous_yellam_result').show();   //showing only yellam for other temple
 </script>
 @else
     <script>
-        $('#s_content').show();  //switch option for singaravel temple
+        $('#s_content').show();  //switch option for singaravel temple & nagammai temple
     </script>
 @endif
 

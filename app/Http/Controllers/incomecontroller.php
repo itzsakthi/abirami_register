@@ -123,7 +123,6 @@ class incomecontroller extends Controller
       'vari_no' => 'required_if:itype,PULLIVARI|nullable|digits:10',
       'vari_address' => 'required_if:itype,PULLIVARI|nullable|string',
       'vari_value' => 'required_if:itype,PULLIVARI|nullable|numeric',
-      'vari_DESCRIPTION' => 'required_if:itype,PULLIVARI|nullable|string',
   
       'pulli_id' => 'required_if:itype,DONATION|nullable|string',
       'name' => 'required_if:itype,DONATION|nullable|string',
@@ -131,7 +130,6 @@ class incomecontroller extends Controller
       'address' => 'required_if:itype,DONATION|nullable|string',
       'dtype' => 'required_if:itype,DONATION|nullable|string',
       'value' => 'required_if:itype,DONATION|nullable|numeric',
-      'DESCRIPTION' => 'required_if:itype,DONATION|nullable|string',
   
       'other_name' => 'required_if:itype,OTHERS|nullable|string',
       'other_no' => 'required_if:itype,OTHERS|nullable|digits:10',
@@ -148,7 +146,6 @@ class incomecontroller extends Controller
         'vari_no.required_if' => 'Kindly Enter Mobile no field',
         'vari_address.required_if' => 'Kindly Enter Address field',
         'vari_value.required_if' => 'Kindly Enter a Amount',
-        'vari_DESCRIPTION.required_if' => 'Kindly Enter the DESCRIPTION',
     
         'pulli_id.required_if' => 'Kindly Choose a option',
         'name.required_if' => 'Kindly Enter Name field',
@@ -156,7 +153,6 @@ class incomecontroller extends Controller
         'address.required_if' => 'Kindly Enter Address field',
         'dtype.required_if' => 'Kindly Choose a option',
         'value.required_if' => 'Kindly Enter a Amount',
-        'DESCRIPTION.required_if' => 'Kindly Enter the DESCRIPTION',
     
         'other_name.required_if' => 'Kindly Enter Name field',
         'other_no.required_if' => 'Kindly Enter Mobile no field',
@@ -234,7 +230,7 @@ class incomecontroller extends Controller
           'pay_to_txt'=>$years,
           'type'=>'INCOME',
           'tot' => $request->itype,
-          'remarks' => $request->vari_DESCRIPTION,
+          'remarks' => $request->vari_DESCRIPTION ?? '',
           'receipt_id'=>$receiptid,
           'created_at' => now(),
       ]);
@@ -263,7 +259,7 @@ class incomecontroller extends Controller
           'tot' => $request->itype,
           'pay_to_txt'=>$request->no.'|||'.$request->address,
           'pay_mode' => $request->dtype,
-          'remarks' => $request->DESCRIPTION,
+          'remarks' => $request->DESCRIPTION ?? '',
           'receipt_id'=>$receiptid,
           'created_at' => now(),
         ]);
@@ -277,7 +273,7 @@ class incomecontroller extends Controller
           'tot' => $request->itype,
           'pay_to_txt'=>'--',
           'pay_mode' => $request->dtype,
-          'remarks' => $request->DESCRIPTION,
+          'remarks' => $request->DESCRIPTION ?? '',
           'receipt_id'=>$receiptid,
           'created_at' => now(),
         ]);
