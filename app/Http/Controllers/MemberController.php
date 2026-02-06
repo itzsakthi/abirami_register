@@ -350,18 +350,19 @@ return redirect()->back()->withErrors($validator)->withInput();
                 'Nagammai KOVIL',
                 'info@nagammai.com',
                 '9876543210',
-                $name,
-                $karai,
-                $fathername,
-                $spousename,
-                $whatsappnumber,
-                $spousenumber,
-                $email,
-                $address,
-                $native
+                $name ?? ' ',
+                $karai ?? ' ',
+                $fathername ?? ' ',
+                $spousename ?? ' ',
+                $whatsappnumber ?? ' ',
+                $spousenumber ?? ' ',
+                $email ?? ' ',
+                $address ?? ' ',
+                $native ?? ' '
             ]);
             $whatsapp_template = 'soniya_0710';
 
+            \Log::info('log for params: ' . $params);
 
             $url = "http://bhashsms.com/api/sendmsg.php?" . http_build_query([
                 'user'     => 'SonaiyaBWA',
@@ -573,6 +574,67 @@ $native = $request->input('native');
             'native' => $native,
 
         ]);
+
+        
+          if ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in") {
+
+            $data = DB::table('registers')
+            ->where('id', $id) 
+            ->first();
+    
+              $params = implode(',', [
+                    'Nagammai KOVIL',
+                    'Nagammai KOVIL',
+                    'info@nagammai.com',
+                    '9876543210',
+                    $data->name ?? ' ',
+                    $data->karai ?? ' ',
+                    $data->fathername ?? ' ',
+                    $data->spousename ?? ' ',
+                    $data->whatsappnumber ?? ' ',
+                    $data->spousenumber ?? ' ',
+                    $data->email ?? ' ',
+                    $data->address ?? ' ',
+                    $data->native ?? ' '
+                ]);
+                $whatsapp_template = 'soniya_0710';
+
+                \Log::info('Params once loaded: ' . $params);
+
+
+                $url = "http://bhashsms.com/api/sendmsg.php?" . http_build_query([
+                    'user'     => 'SonaiyaBWA',
+                    'pass'     =>  123456,
+                    'sender'   => 'BUZWAP',
+                    'phone'    => $data->whatsappnumber, 
+                    'text'     => $whatsapp_template,
+                    'priority' => 'wa',
+                    'stype'    => 'normal',
+                    'Params'   => $params
+                ]);
+
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+
+                $response = curl_exec($ch);
+
+                if ($response === false) {
+                    \Log::error('BhashSMS cURL error', [
+                        'error' => curl_error($ch)
+                    ]);
+                } else {
+                    \Log::info('BhashSMS WhatsApp response (cURL) new : ', [
+                        'response' => $response
+                    ]);
+                }
+
+                curl_close($ch);
+            }
+         
+  
+        
         
  return redirect()->route('allmember')->with('message', 'Member Register Successfully');;
 

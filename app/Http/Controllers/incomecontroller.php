@@ -29,7 +29,7 @@ class incomecontroller extends Controller
     }
 
     $data = \DB::table('registers')
-    ->select('pulliid', 'name', 'whatsappnumber', 'address', 'native', 'reference')
+    ->select('pulliid', 'name', 'whatsappnumber', 'address', 'native', 'reference', 'familynickname')
     ->where(function ($q) use ($input_value) {
         $q->where('registers.pulliid', 'LIKE', '%' . $input_value . '%')
           ->orWhere('registers.whatsappnumber', 'LIKE', '%' . $input_value . '%')

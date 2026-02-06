@@ -77,6 +77,7 @@
                                               <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Pulli Id</th>
                                               <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Name</th>
                                               <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Mobile NO</th>
+                                              <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Family Name</th>
                                             <tr>                                            
                                         </thead>
                                         <tbody>
@@ -233,6 +234,7 @@ $(document).ready(function () {
                                 <td>${item.pulliid}</td>
                                 <td>${item.name}</td>
                                 <td>${item.whatsappnumber}</td>
+                                <td>${item.familynickname ?? '' } </td>
                             </tr>
                         `;
                         ids++;

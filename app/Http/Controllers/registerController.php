@@ -58,30 +58,67 @@ class registerController extends Controller
 
         } else {
 
-          $curl = curl_init();
+          if ($_SERVER['HTTP_HOST'] == "napvm.templesmart.in") {
 
-          curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://api.smithworks.online/api/meta/vplankovil',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => 'token=ayfz6TRcyr7iEv4gs04ZuE2hit8fSVloAb586S2CtjyEQKv6MEkqLk88mhBbghmX&date=2024-05-15&name='.$data->name.'(Pulli ID:'.$data->pulliid.')&fname='.$data->fathername.'&sname='.$data->spousename.'&mobileno='.$data->phonenumber.'&wmobileno='.$data->whatsappnumber.'&smobileno='.$data->spousenumber.'&email='.$data->email.'&add='.$data->address.'&native='.$data->native,
-            CURLOPT_HTTPHEADER => array(
-              'Content-Type: application/x-www-form-urlencoded',
-              'Cookie: XSRF-TOKEN=eyJpdiI6InFpUnAwcWhWNmJlSURSS2FWK0dpVUE9PSIsInZhbHVlIjoicTcwV1RjVXlIZnIwXC9lMzFKeGNaODUzWlVKZnFhazdObDZxaDQ5SW5rU21MeDNUTGpmMHlyN0ltWStZalRZSWZZanlScmFiN1VPdk9XQjk4dktobnRRPT0iLCJtYWMiOiIzYTA5ZmU2OGIwMjE0YWY2YWI4MjRlZDVhOTk4Mzg1Mzk1M2U5ZTczYTFmMWNjZTA2YmJiMmY0MGFkMTI5YTUxIn0%3D; laravel_session=eyJpdiI6Ik4zc2VyU1F0a0UzQnVqMnFwXC9LY3V3PT0iLCJ2YWx1ZSI6IldXc3RrdVFoazN4QjRQZWlcL21OaTNDcGxIR1Joakk4UTl4REZWTWtuXC81MGZWUG9YdkF4d0NuMnlndWE0Ynd2NDZENGtkXC84VndnOUlZcjduT1R4bHJBPT0iLCJtYWMiOiI5ZDdkZjE2OTFlZjcyNDFjOTZmNmIyM2FhZjQwZWYxNmI2YWFiZjVhMmEzZTlhZjhjMzBiMjFmMTRjYzUwZmVjIn0%3D'
-            ),
-          ));
+            $data = DB::table('registers')
+            ->where('id', $id) 
+            ->first();
+    
+              $params = implode(',', [
+                    'Nagammai KOVIL',
+                    'Nagammai KOVIL',
+                    'info@nagammai.com',
+                    '9876543210',
+                    $data->name ?? ' ',
+                    $data->karai ?? ' ',
+                    $data->fathername ?? ' ',
+                    $data->spousename ?? ' ',
+                    $data->whatsappnumber ?? ' ',
+                    $data->spousenumber ?? ' ',
+                    $data->email ?? ' ',
+                    $data->address ?? ' ',
+                    $data->native ?? ' '
+                ]);
+                $whatsapp_template = 'soniya_0710';
 
-          $response = curl_exec($curl);
+                \Log::info('Params once loaded: ' . $params);
 
-          curl_close($curl);
+
+                $url = "http://bhashsms.com/api/sendmsg.php?" . http_build_query([
+                    'user'     => 'SonaiyaBWA',
+                    'pass'     =>  123456,
+                    'sender'   => 'BUZWAP',
+                    'phone'    => $data->whatsappnumber, 
+                    'text'     => $whatsapp_template,
+                    'priority' => 'wa',
+                    'stype'    => 'normal',
+                    'Params'   => $params
+                ]);
+
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+
+                $response = curl_exec($ch);
+
+                if ($response === false) {
+                    \Log::error('BhashSMS cURL error', [
+                        'error' => curl_error($ch)
+                    ]);
+                } else {
+                    \Log::info('BhashSMS WhatsApp response (cURL) new : ', [
+                        'response' => $response
+                    ]);
+                }
+
+                curl_close($ch);
+            }
+         
+  
         }
         
-    return redirect()->route('allmember')->with('message', 'Whatsapp Message Successfully');;
+    return redirect()->route('allmember')->with('message', 'Whatsapp Message Successfully');
   }
 
   public function yellamvalidate(Request $request){
@@ -397,11 +434,11 @@ class registerController extends Controller
                     $month_year . ',' .
                     $yelam_thing . ',' .
                     $name . ',' .
+                    $karai . ',' .
                     $value . ',' .
                     $pulliid . ',' .
                     $whatsappno . ',' .
-                    $native . ',' .
-                    $karai
+                    $native
                 ),
             CURLOPT_HTTPHEADER => [
                 'Content-Type: application/x-www-form-urlencoded',

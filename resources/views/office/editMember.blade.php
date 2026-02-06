@@ -5,7 +5,8 @@
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <style>
     .amman {
         display: none;
@@ -125,7 +126,7 @@
         <input type="text" class="form-control" id="" name="native" value="{{$data-> native}}" required>
     </div>
 <div class="but" style="display:flex; flex-direction:row; gap:30%">
-    <button type="button" id="whatsappbtn" class="btn bg-gradient-success">Send Whatsapp</button>
+
     <button type="submit" id="submitbtn" class="btn bg-gradient-success">Submit</button>
     <button type="button" onclick="history.back()" id="cancelbtn" class="btn bg-gradient-primary">Cancel X </button></div>
 </div>
@@ -165,6 +166,45 @@
             setTimeout(() => box.remove(), 500);
         }
     }, 5000); // 5 seconds
+</script>
+
+
+
+<script>
+document.getElementById('registerform').addEventListener('submit', function(e) {
+    e.preventDefault(); 
+
+    Swal.fire({
+        title: "Submit",
+        text: "Are you sure you want to submit this information?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#00aaff",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Submit it!"
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            // Disable submit button
+            document.getElementById('submitbtn').disabled = true;
+            document.getElementById('submitbtn').innerText = "Submitting...";
+
+            Swal.fire({
+                title: "Please Wait...",
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            // Submit form after 300ms
+            setTimeout(() => {
+                e.target.submit();
+            }, 300);
+        }
+    });
+});
 </script>
 
 
